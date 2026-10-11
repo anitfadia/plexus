@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plexus · find your people</title>
+<meta name="description" content="Tell Plexus what you're into and meet first-years who get it. Dexter helps you say hi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF6E5;--ink:#1B1B2F;--pink:#FF6FB5;--org:#FF9F43;--sky:#4DC3FF;--lime:#B9F24F;--lem:#FFE45C;--mint:#6FE7C4;--lil:#B79CFF;
+ --sh:4px 4px 0 var(--ink);--head:'Fredoka',system-ui,sans-serif;--body:'Nunito',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg) radial-gradient(rgba(27,27,47,.13) 1.5px,transparent 1.5px) 0 0/24px 24px;color:var(--ink);font:700 1.05rem/1.5 var(--body);overflow-x:hidden}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+.top{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0}
+.logo{font:700 1.9rem var(--head);display:flex;align-items:center;gap:.5rem;text-decoration:none;color:inherit}
+.btn{font:600 1.05rem var(--head);padding:.8rem 1.4rem;border:3px solid var(--ink);border-radius:99px;background:var(--pink);box-shadow:var(--sh);cursor:pointer;transition:transform .12s,box-shadow .12s;text-decoration:none;display:inline-block;color:var(--ink)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn.alt{background:#fff}.btn.big{font-size:1.25rem;padding:1rem 1.8rem}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:2rem 0 1rem}
+.pill{display:inline-block;background:var(--lime);border:3px solid var(--ink);border-radius:99px;padding:.25rem .9rem;font:600 .95rem var(--head);rotate:-3deg;box-shadow:3px 3px 0 var(--ink)}
+h1{font:700 clamp(2.7rem,8vw,5.2rem)/.98 var(--head);margin:1rem 0}
+h1 mark{background:linear-gradient(transparent 58%,var(--lem) 58% 92%,transparent 92%);color:inherit;padding:0 .1em}
+h1 .p{color:var(--pink)}
+.lead{font-size:1.2rem;max-width:34ch;margin-bottom:1.6rem}
+.cta{display:flex;gap:.9rem;flex-wrap:wrap}
+.stack{position:relative;height:360px}
+.st{position:absolute;background:#fff;border:3px solid var(--ink);border-radius:22px;box-shadow:var(--sh);padding:.8rem 1.1rem;animation:bob 5s ease-in-out infinite}
+.st small{display:block;font-weight:800;opacity:.7}
+.s1{top:14px;left:6%;rotate:-5deg;background:var(--pink)}
+.s2{top:112px;right:2%;rotate:4deg;background:var(--sky);animation-delay:-1.5s}
+.s3{bottom:30px;left:12%;rotate:-2deg;background:var(--lem);max-width:230px;animation-delay:-3s}
+.s4,.s5,.s6{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:1.9rem;padding:0}
+.s4{top:0;right:24%;background:var(--mint);animation-delay:-.8s}.s5{bottom:96px;right:6%;background:var(--org);animation-delay:-2.2s}.s6{top:196px;left:0;background:var(--lil);animation-delay:-4s}
+@keyframes bob{50%{translate:0 -12px}}
+.belt{overflow:hidden;border-block:3px solid var(--ink);background:var(--lem);rotate:-1.2deg;margin:2.4rem -3vw}
+.belt div{display:flex;gap:2.2rem;width:max-content;padding:.7rem 0;font:600 1.25rem var(--head);animation:belt 32s linear infinite;white-space:nowrap}
+@keyframes belt{to{transform:translateX(-50%)}}
+.h2{font:700 clamp(2rem,5vw,3rem)/1.05 var(--head);margin-bottom:.5rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:1.6rem 0 3rem}
+.step{background:#fff;border:3px solid var(--ink);border-radius:24px;box-shadow:var(--sh);padding:1.2rem}
+.step:nth-child(2){rotate:1deg}.step:nth-child(1){rotate:-1deg}
+.step b{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:3px solid var(--ink);font:700 1.3rem var(--head);margin-bottom:.6rem}
+.step h3{font:600 1.3rem var(--head)}.step p{opacity:.8;font-size:.98rem}
+.box{background:#fff;border:3px solid var(--ink);border-radius:28px;box-shadow:8px 8px 0 var(--ink);padding:clamp(1.1rem,3vw,2rem)}
+label.q,.q{display:block;font:600 1.3rem var(--head);margin:1.4rem 0 .6rem}
+.q:first-child{margin-top:0}
+.q span{font:700 .9rem var(--body);opacity:.6;margin-left:.4rem}
+input[type=text]{width:100%;font:700 1.1rem var(--body);padding:.8rem 1rem;border:3px solid var(--ink);border-radius:16px;background:var(--bg);color:var(--ink)}
+input[type=text]:focus{box-shadow:var(--sh);outline:none;background:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+.chip{font:800 .98rem var(--body);padding:.55rem .95rem;border:3px solid var(--ink);border-radius:99px;background:#fff;cursor:pointer;transition:transform .15s cubic-bezier(.3,1.6,.5,1),box-shadow .15s}
+.chip:hover{transform:translateY(-2px) rotate(-1deg)}
+.chip[aria-pressed=true]{background:var(--c,var(--lem));transform:translateY(-3px) rotate(-2deg);box-shadow:3px 3px 0 var(--ink)}
+.hint{margin-top:.8rem;font-size:.95rem;min-height:1.5em}
+.go{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.4rem}
+.wig{animation:wig .45s}@keyframes wig{25%{translate:-6px}50%{translate:6px}75%{translate:-4px}}
+#results{padding:3rem 0 4rem}
+.list{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.6rem}
+.match{display:grid;grid-template-columns:auto 1fr auto;gap:.9rem 1rem;align-items:start;background:#fff;border:3px solid var(--ink);border-radius:26px;padding:1.1rem;box-shadow:var(--sh);transition:transform .2s;animation:pop .5s cubic-bezier(.3,1.5,.5,1) both}
+.match:nth-child(odd){rotate:-.7deg}.match:nth-child(even){rotate:.7deg}
+.match:hover{rotate:0deg;transform:translateY(-4px)}
+@keyframes pop{from{opacity:0;transform:scale(.85) translateY(20px)}}
+.av{width:62px;height:62px;border-radius:50%;background:var(--bg);border:3px solid var(--ink);display:grid;place-items:center;font-size:2rem}
+.match h3{font:600 1.3rem var(--head);line-height:1.1}.match h3 small{font:800 .8rem var(--body);opacity:.6;margin-left:.3rem}
+.fact{font-size:.92rem;opacity:.8;margin:.2rem 0 .6rem}
+.tg{display:flex;flex-wrap:wrap;gap:.35rem}
+.tg span{font:800 .78rem var(--body);border:2px solid var(--ink);border-radius:99px;padding:.1rem .6rem;background:var(--lem)}
+.tg span.dim{background:#fff;opacity:.55;border-style:dashed}
+.pct{--p:80;width:62px;height:62px;border-radius:50%;background:conic-gradient(var(--pink) calc(var(--p)*1%),#ece6d6 0);display:grid;place-items:center;position:relative}
+.pct::before{content:"";position:absolute;inset:7px;background:#fff;border-radius:50%}
+.pct b{position:relative;font:700 .95rem var(--head)}
+.ice{grid-column:1/-1;background:var(--bg);border:2.5px dashed var(--ink);border-radius:16px;padding:.6rem .8rem;font-size:.94rem}
+.hi{grid-column:1/-1;font:600 1rem var(--head);padding:.6rem;border:3px solid var(--ink);border-radius:99px;background:var(--mint);cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:transform .1s,box-shadow .1s}
+.hi:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.hi:disabled{background:var(--lime);box-shadow:none;cursor:default}
+.note{font-size:.88rem;opacity:.7;margin-top:1.4rem}
+footer{border-top:3px solid var(--ink);background:var(--lil);padding:1.6rem 0 6rem;text-align:center;font-weight:800}
+.by{margin-top:.6rem;font-size:.85rem;opacity:.6}
+.by a{border-bottom:1.5px solid transparent;transition:border-color .2s,opacity .2s}
+.by:hover{opacity:1}.by a:hover{border-color:var(--ink)}
+.fab{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));width:70px;height:70px;border-radius:24px;border:3px solid var(--ink);background:var(--mint);box-shadow:var(--sh);display:grid;place-items:center;cursor:pointer;z-index:60;transition:transform .15s}
+.fab:hover{transform:rotate(-6deg) scale(1.06)}
+.fab.ping::after{content:"";position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--pink);border:3px solid var(--ink);animation:bob 1.6s infinite}
+.bot{position:relative;width:40px;height:30px;border:3px solid var(--ink);border-radius:13px;background:#fff;display:flex;gap:8px;justify-content:center;align-items:center}
+.bot::before{content:"";position:absolute;top:-12px;left:50%;width:3px;height:9px;background:var(--ink);translate:-50% 0}
+.bot::after{content:"";position:absolute;top:-19px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--pink);border:2.5px solid var(--ink);translate:-50% 0}
+.bot i{width:6px;height:9px;border-radius:50%;background:var(--ink);animation:blink 4s infinite}
+@keyframes blink{94%,100%{scale:1 1}96%{scale:1 .1}}
+.dex{position:fixed;right:1rem;bottom:calc(5.9rem + env(safe-area-inset-bottom,0px));width:min(390px,calc(100vw - 2rem));height:min(540px,calc(100vh - 8.5rem));background:#fff;border:3px solid var(--ink);border-radius:26px;box-shadow:8px 8px 0 var(--ink);display:flex;flex-direction:column;z-index:60;scale:.85;translate:0 24px;opacity:0;pointer-events:none;transform-origin:bottom right;transition:.28s cubic-bezier(.3,1.5,.5,1)}
+.dex.open{scale:1;translate:0 0;opacity:1;pointer-events:auto}
+.dh{display:flex;align-items:center;gap:.8rem;padding:.8rem 1rem;background:var(--mint);border-bottom:3px solid var(--ink);border-radius:22px 22px 0 0}
+.dh .bot{scale:.8;margin-top:8px}.dh b{font:700 1.3rem var(--head);line-height:1}.dh small{display:block;font-weight:800;font-size:.8rem;opacity:.7}
+.dh button{margin-left:auto;border:3px solid var(--ink);background:#fff;border-radius:50%;width:34px;height:34px;font-weight:800;cursor:pointer}
+#log{flex:1;overflow:auto;padding:1rem;display:flex;flex-direction:column;gap:.6rem}
+.msg{max-width:86%;padding:.6rem .9rem;border:2.5px solid var(--ink);border-radius:18px 18px 18px 4px;background:var(--lem);font-size:.95rem;animation:pop .3s both}
+.msg.me{align-self:flex-end;background:var(--sky);border-radius:18px 18px 4px 18px}
+.typing{display:flex;gap:4px;width:max-content}.typing i{width:8px;height:8px;border-radius:50%;background:var(--ink);animation:bob .8s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+.qr{display:flex;gap:.4rem;overflow-x:auto;padding:.2rem 1rem .6rem}
+.qr button{flex:none;font:800 .85rem var(--body);border:2.5px solid var(--ink);background:#fff;border-radius:99px;padding:.35rem .8rem;cursor:pointer}
+.qr button:hover{background:var(--lil)}
+.df{display:flex;gap:.5rem;padding:.7rem;border-top:3px solid var(--ink)}
+.df input{flex:1;font:700 1rem var(--body);border:3px solid var(--ink);border-radius:99px;padding:.55rem 1rem;background:var(--bg)}
+.df button{border:3px solid var(--ink);background:var(--pink);border-radius:99px;font:600 1rem var(--head);padding:0 1.1rem;cursor:pointer}
+.cf{position:fixed;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:99;animation:cf .95s ease-out forwards}
+@keyframes cf{40%{transform:translate(calc(var(--dx)*.6),var(--dy))}to{transform:translate(var(--dx),calc(var(--dy) + 260px)) rotate(var(--rot));opacity:0}}
+@media (max-width:760px){.hero,.steps,.list{grid-template-columns:1fr}.stack{height:300px}.match{rotate:0!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#top" aria-label="Plexus home"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M7 25 17 8l10 17z" fill="none" stroke="#1B1B2F" stroke-width="3" stroke-linejoin="round"/><circle cx="17" cy="8" r="5" fill="#FF6FB5" stroke="#1B1B2F" stroke-width="3"/><circle cx="7" cy="25" r="5" fill="#4DC3FF" stroke="#1B1B2F" stroke-width="3"/><circle cx="27" cy="25" r="5" fill="#FFE45C" stroke="#1B1B2F" stroke-width="3"/></svg>plexus</a>
+    <a class="btn alt" href="#build">Get started</a>
+  </header>
+
+  <section class="hero" id="top">
+    <div>
+      <span class="pill">for first-years 🎒</span>
+      <h1>Your people are <mark>already here</mark><span class="p">.</span></h1>
+      <p class="lead">Tell Plexus what you're into. We'll match you with first-years who actually get it, and Dexter helps you say hi without the cringe.</p>
+      <div class="cta"><a class="btn big" href="#build">Find my squad ✨</a><button class="btn alt big" id="meet" type="button">Meet Dexter 🤖</button></div>
+    </div>
+    <div class="stack" aria-hidden="true">
+      <div class="st s1">🦊 Priya<small>94% match · movies, gaming</small></div>
+      <div class="st s2">🐯 Brandon<small>90% match · coding, sports</small></div>
+      <div class="st s3">🤖 <b>Dexter:</b> psst, you both love cricket 👀</div>
+      <div class="st s4">🎮</div><div class="st s5">🎧</div><div class="st s6">🏏</div>
+    </div>
+  </section>
+</div>
+
+<div class="belt" aria-hidden="true"><div id="belt"></div></div>
+
+<div class="wrap">
+  <h2 class="h2">How it works</h2>
+  <div class="steps">
+    <div class="step"><b style="background:var(--pink)">1</b><h3>Pick your vibes</h3><p>Choose the stuff you love. Games, music, cricket, memes, all of it counts.</p></div>
+    <div class="step"><b style="background:var(--sky)">2</b><h3>Meet your squad</h3><p>We rank first-years by how much you have in common, with the shared stuff highlighted.</p></div>
+    <div class="step"><b style="background:var(--lem)">3</b><h3>Break the ice</h3><p>Every match comes with an opener. Dexter has more if your mind goes blank.</p></div>
+  </div>
+
+  <section class="box" id="build">
+    <label class="q" for="name">What should we call you?<span>optional</span></label>
+    <input type="text" id="name" maxlength="20" placeholder="Your name or a nickname" autocomplete="nickname">
+    <div class="q" id="iq">What are you into?<span id="cnt">0/8</span></div>
+    <div class="chips" id="chips" aria-labelledby="iq"></div>
+    <div class="q" id="vq">Perfect weekend?</div>
+    <div class="chips" id="vibes" aria-labelledby="vq"></div>
+    <p class="hint" id="hint" role="status">Pick at least 3 so we can match you.</p>
+    <div class="go"><button class="btn big" id="go" type="button">Find my squad ✨</button></div>
+  </section>
+
+  <section id="results" hidden>
+    <h2 class="h2" id="rt"></h2>
+    <p>Ranked by how much you have in common. Say hi, the first message is the hardest.</p>
+    <div class="list" id="list" aria-live="polite"></div>
+    <p class="note">These are fictional demo students. With real sign-ups, Plexus would match you against actual first-years.</p>
+  </section>
+</div>
+
+<footer><div class="wrap">Made with 💛 for anyone who's ever eaten lunch alone in week one.<p class="by">Built by Anit Fadia</a></p></div></footer>
+
+<button class="fab" id="fab" type="button" aria-label="Chat with Dexter"><span class="bot"><i></i><i></i></span></button>
+<aside class="dex" id="dex" aria-label="Chat with Dexter">
+  <div class="dh"><span class="bot"><i></i><i></i></span><div><b>Dexter</b><small>your icebreaker buddy</small></div><button id="x" type="button" aria-label="Close chat">✕</button></div>
+  <div id="log" aria-live="polite"></div>
+  <div class="qr" id="qr"></div>
+  <form class="df" id="df"><input id="in" placeholder="Ask Dexter anything…" aria-label="Message Dexter" autocomplete="off"><button>Send</button></form>
+</aside>
+
+<script>
+const $=s=>document.querySelector(s),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const I=[['Gaming','🎮'],['Cricket','🏏'],['Football','⚽'],['Music','🎧'],['Anime','🍥'],['Coding','💻'],['Art','🎨'],['Dance','💃'],['Photography','📸'],['Movies','🎬'],['Reading','📚'],['Fitness','💪'],['Cooking','🍳'],['Travel','✈️'],['Memes','😂'],['Startups','🚀'],['K-pop','🎤'],['Chess','♟️'],['Writing','✍️'],['Debate','🗣️'],['Fashion','👟'],['Space','🔭'],['Podcasts','🎙️'],['Badminton','🏸']];
+const E=Object.fromEntries(I),COL=['#FF6FB5','#FF9F43','#4DC3FF','#B9F24F','#FFE45C','#6FE7C4','#B79CFF'];
+const V=[['chill','Chill & movies 🛋️'],['out','Out exploring 🌆'],['game','Game night 🕹️'],['study','Study buddies 📖']];
+const ICE={Gaming:"What's the one game you could replay forever?",Cricket:"Be honest: best IPL team of all time?",Football:"Who's your football GOAT?",Music:"What song is stuck in your head right now?",Anime:"Which anime ending broke you?",Coding:"What's the first thing you ever built?",Art:"Do you doodle in class too?",Dance:"Which song makes you dance instantly?",Photography:"What's your favourite photo you've ever taken?",Movies:"Which movie have you watched way too many times?",Reading:"What book would you hand to a stranger?",Fitness:"Gym, run or sports: what's your thing?",Cooking:"What's your signature dish?",Travel:"Dream trip, no budget. Where?",Memes:"Send me your best meme, I'll rate it.",Startups:"If you could build any app, what would it be?",'K-pop':"Who's your bias? (No judgement.)",Chess:"Which opening do you secretly love?",Writing:"Poems, stories or random notes: what do you write?",Debate:"Hot take: pineapple on pizza?",Fashion:"Best sneakers you own?",Space:"Would you actually go to Mars?",Podcasts:"What are you listening to lately?",Badminton:"Singles or doubles person?"};
+const S=[
+ {n:'Priya',b:'AI & DS',e:'🦊',c:'#FFD1E8',i:['Anime','Gaming','K-pop','Art'],v:'game',q:'Will argue about tv show endings at 2am.'},
+ {n:'Aryaman',b:'CSE',e:'🐯',c:'#FFE9B0',i:['Coding','Startups','Chess','Gaming'],v:'study',q:'Building a side project nobody asked for.'},
+ {n:'Megh',b:'Design',e:'🦋',c:'#CDEBFF',i:['Art','Photography','Travel','Fashion'],v:'out',q:'Sends memes instead of replying.'},
+ {n:'Brandon',b:'Mech',e:'🦁',c:'#E3FFB0',i:['Cricket','Fitness','Football','Movies'],v:'out',q:'Will never let you feel bored.'},
+ {n:'Param',b:'ECE',e:'🐼',c:'#E8DDFF',i:['Music','Podcasts','Reading','Writing'],v:'chill',q:'Has a playlist for every mood.'},
+ {n:'Anit',b:'CSE',e:'🐸',c:'#CFF7E8',i:['Memes','Gaming','Coding','Movies'],v:'game',q:'Will turn any chat into IPL talk.'},
+ {n:'Kanak',b:'BBA',e:'🦄',c:'#FFD1E8',i:['Debate','Startups','Fashion','Travel'],v:'out',q:'Wins every argument, politely.'},
+ {n:'Aaditya',b:'IT',e:'🐙',c:'#CDEBFF',i:['Chess','Space','Coding','Anime'],v:'chill',q:'Knows too much about black holes.'},
+ {n:'Ananya',b:'Biotech',e:'🐨',c:'#FFE9B0',i:['Cooking','Reading','Dance','K-pop'],v:'chill',q:'Will cook for you and recommend a book.'},
+ {n:'Pratham',b:'Civil',e:'🦖',c:'#E3FFB0',i:['Cricket','Badminton','Memes','Football'],v:'out',q:'Always the one who books the court.'},
+ {n:'Milind',b:'AI & DS',e:'🐬',c:'#E8DDFF',i:['Photography','Podcasts','Music','Writing'],v:'chill',q:'Journals, photographs, overthinks lovingly.'},
+ {n:'Maanan',b:'EXTC',e:'🦉',c:'#CFF7E8',i:['Gaming','Space','Podcasts','Chess'],v:'game',q:'Night owl with strong opinions on co-op games.'}];
+const sel=new Set();let vibe='',name='',list=[];
+
+$('#belt').innerHTML=[...I,...I].map(([n,e])=>`<span>${e} ${n}</span>`).join('');
+$('#chips').innerHTML=I.map(([n,e],k)=>`<button type="button" class="chip" aria-pressed="false" data-n="${n}" style="--c:${COL[k%7]}">${e} ${n}</button>`).join('');
+$('#vibes').innerHTML=V.map(([k,t],j)=>`<button type="button" class="chip" aria-pressed="false" data-v="${k}" style="--c:${COL[(j+2)%7]}">${t}</button>`).join('');
+const hint=t=>$('#hint').textContent=t, wig=el=>{el.classList.remove('wig');void el.offsetWidth;el.classList.add('wig')};
+
+function pop(x,y){if(reduce)return;for(let i=0;i<22;i++){const s=document.createElement('i');s.className='cf';s.style.cssText=`left:${x}px;top:${y}px;background:${COL[i%7]};--dx:${(Math.random()-.5)*300}px;--dy:${-90-Math.random()*170}px;--rot:${Math.random()*720}deg`;document.body.appendChild(s);setTimeout(()=>s.remove(),1000)}}
+
+$('#chips').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;const n=b.dataset.n;
+  if(sel.has(n))sel.delete(n);else{if(sel.size>=8){hint('That is the max (8). Drop one to add another 💛');wig(b);return}sel.add(n)}
+  b.setAttribute('aria-pressed',sel.has(n));$('#cnt').textContent=sel.size+'/8';
+  hint(sel.size<3?'Pick at least 3 so we can match you.':'Nice picks ✨ Add more or hit the button.')};
+$('#vibes').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;vibe=vibe===b.dataset.v?'':b.dataset.v;
+  document.querySelectorAll('#vibes .chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.v===vibe))};
+
+function match(){return S.map(s=>{const sh=s.i.filter(x=>sel.has(x)),d=2*sh.length/(sel.size+s.i.length);
+  let p=sh.length?35+sh.length*14+Math.round(30*d):20;if(s.v===vibe)p+=6;return{...s,sh,p:Math.min(98,p)}}).sort((a,b)=>b.p-a.p).slice(0,6)}
+const ice=m=>m.sh.length?ICE[m.sh[0]]:'Pineapple on pizza: crime or genius?';
+
+function render(){
+  $('#rt').textContent=name?`Your squad, ${name} 🎉`:'Your squad 🎉';
+  $('#list').innerHTML=list.map((m,k)=>`<article class="match" style="animation-delay:${k*.08}s">
+    <div class="av" style="background:${m.c}">${m.e}</div>
+    <div><h3>${m.n}<small>${m.b}</small></h3><p class="fact">${m.q}</p>
+      <div class="tg">${m.i.map(x=>`<span class="${m.sh.includes(x)?'':'dim'}">${E[x]} ${x}</span>`).join('')}</div></div>
+    <div class="pct" style="--p:${m.p}" title="${m.p}% match"><b>${m.p}%</b></div>
+    <p class="ice">💬 <b>Icebreaker:</b> ${ice(m)}</p>
+    <button class="hi" type="button">Say hi 👋</button></article>`).join('')}
+$('#list').onclick=e=>{const b=e.target.closest('.hi');if(!b||b.disabled)return;b.disabled=true;b.textContent='Hi sent! 🎉';const r=b.getBoundingClientRect();pop(r.left+r.width/2,r.top)};
+$('#go').onclick=e=>{if(sel.size<3){hint('Pick at least 3 interests first 💛');wig($('#chips'));return}
+  name=$('#name').value.trim();list=match();render();$('#results').hidden=false;pop(e.clientX,e.clientY);
+  $('#results').scrollIntoView({behavior:reduce?'auto':'smooth'});$('#fab').classList.add('ping');
+  dex(`Found your squad${name?', '+name:''}! ${list[0].n} is your top match. Want an icebreaker?`)};
+
+/* ---- Dexter ---- */
+const log=$('#log'),box=$('#dex');
+const say=(t,w)=>{const d=document.createElement('div');d.className='msg '+(w||'');d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight};
+function dex(t){const ty=document.createElement('div');ty.className='msg typing';ty.innerHTML='<i></i><i></i><i></i>';log.appendChild(ty);log.scrollTop=log.scrollHeight;
+  setTimeout(()=>{ty.remove();const d=document.createElement('div');d.className='msg';d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight},reduce?0:650)}
+const PLAN={chill:'Cosy plan: chai and a movie marathon in the common room.',out:'Go exploring: sunset walk and a street food crawl near campus.',game:'Game night! Co-op games, snacks, zero pressure.',study:'Study date: library table, coffee break every hour.'};
+const JOKES=['Why did the student bring a ladder to class? To reach higher education 😜','I told my laptop I needed space. It opened a new tab 🚀','Why do programmers prefer dark mode? Light attracts bugs 🐛','My WiFi and I have a lot in common: we both disconnect when it matters 😅'];
+const NEED='Pick a few interests above and hit "Find my squad" first, then I can get specific 💛';
+function brain(q){q=q.toLowerCase();const t=list[0],hi=name?' '+name:'';
+  if(/\b(hi|hello|hey|yo|sup)\b/.test(q))return `Heyyy${hi}! I'm Dexter 🤖 I help first-years say hi without the cringe. Ask me for an icebreaker!`;
+  if(/thank|thx|\bty\b/.test(q))return 'Anytime! Go make a friend 💛';
+  if(/shy|nervous|awkward|anxious|scared|introvert/.test(q))return "Totally normal, everyone is secretly nervous in week one 💛 Start tiny: one question, not an essay. Want an icebreaker?";
+  if(/joke|funny|bored|laugh/.test(q))return JOKES[Math.floor(Math.random()*JOKES.length)];
+  if(!t)return NEED;
+  if(/icebreak|opener|start|talk|say/.test(q))return `Try this with ${t.n}: "${ice(t)}" 😎`;
+  if(/hangout|plan|weekend|meet/.test(q))return `${PLAN[vibe]||PLAN.chill} Invite ${t.n} 😉`;
+  if(/club|society|join|group/.test(q)){const [a,b]=[...sel];return `Look for a ${a} club on campus${b?`, or a ${b} one`:''}. Or start a small group chat with your top matches. Clubs are the fastest way to meet people!`}
+  if(/who|match|first|top/.test(q))return `Start with ${t.n} (${t.p}% match). You share ${t.sh.join(', ')||'good energy'} ✨`;
+  return 'Hmm, I did not catch that 🙈 Try asking for an icebreaker, a club idea or a weekend plan!'}
+function toggle(open){const o=open??!box.classList.contains('open');box.classList.toggle('open',o);$('#fab').classList.remove('ping');
+  if(o&&!log.children.length)dex("Hi, I'm Dexter 🤖 your icebreaker buddy. Pick your interests, then ask me anything!");if(o)setTimeout(()=>$('#in').focus(),300)}
+$('#qr').innerHTML=['Icebreaker please 💬','Who first? 👀',"I'm shy 😅",'Weekend plan 🎉','Joke 😜'].map(t=>`<button type="button">${t}</button>`).join('');
+$('#qr').onclick=e=>{if(e.target.tagName==='BUTTON'){say(e.target.textContent,'me');dex(brain(e.target.textContent))}};
+$('#df').onsubmit=e=>{e.preventDefault();const v=$('#in').value.trim();if(!v)return;$('#in').value='';say(v,'me');dex(brain(v))};
+$('#fab').onclick=()=>toggle();$('#x').onclick=()=>toggle(false);$('#meet').onclick=()=>toggle(true);
+</script>
+</body>
+</html>
